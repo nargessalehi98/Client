@@ -18,10 +18,11 @@ public class Client1 {
             System.out.println("Unexpected exception: " + ioe.getMessage());
         }
         String line = "";
-        while (!line.equals("over")) {
+        while (!line.contains("over")) {
             try {
-                assert console != null;
-                line = console.readLine();
+                line =" "+ console.readLine();
+                if(line.contains("over"))
+                    System.exit(0);
                 streamOut.writeUTF(line);
                 streamOut.flush();
             } catch (IOException ioe) {
